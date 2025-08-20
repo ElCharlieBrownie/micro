@@ -15,6 +15,15 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    // Ejecuta análisis estático con Maven + SonarQube
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=miapp'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
