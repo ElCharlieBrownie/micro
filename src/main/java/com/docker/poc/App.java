@@ -11,11 +11,3 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 }
-
-@RestController
-class HelloController {
-    @GetMapping("/")
-    public String hello() {
-        return "¡Hola, Jenkins + Docker!";
-    }
-}
